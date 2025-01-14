@@ -8,18 +8,18 @@ export const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    canActivate: [authGuard],
+    // canActivate: [authGuard],
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
   },
-  
+
   {
     path: 'account',
-    canActivate: [loginGuard],
+    // canActivate: [loginGuard],
     loadChildren: () => import('./account/account.module').then(m => m.AccountModule)
   },
   {
     path: 'pages',
-    canActivate: [authGuard],
+    // canActivate: [authGuard],
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
   },
 

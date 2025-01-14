@@ -10,11 +10,11 @@ import { PatientsPeriodontalChartListComponent } from './periodontal-chart/patie
 const routes: Routes = [
 
   { path: 'home', component: PatientsComponent },
-  { path: 'periodontal-chart-list', component: PatientsPeriodontalChartListComponent },
-  { path: 'periodontal-chart', component: PeriodontalChartComponent },
-  { path: 'patient-list', component: PatientsComponent },
-  { path: 'add-patient', component: AddPatientComponent },
-  { path: 'edit-patient', component: EditPatientComponent },
+  // { path: 'periodontal-chart-list', component: PatientsPeriodontalChartListComponent },
+  // { path: 'periodontal-chart', component: PeriodontalChartComponent },
+  // { path: 'patient-list', component: PatientsComponent },
+  // { path: 'add-patient', component: AddPatientComponent },
+  // { path: 'edit-patient', component: EditPatientComponent },
 
 ];
 
