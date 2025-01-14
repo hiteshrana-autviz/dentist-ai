@@ -1,0 +1,224 @@
+.sidebar {
+  width: 260px;
+  transition: width 0.3s ease;
+  // border-right: 1px solid #E3DBDB;
+  // height: 100%;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.menu-items li.active {
+  background: linear-gradient(89.1deg, rgba(141, 129, 216, 0.1) 32.88%, rgba(186, 130, 204, 0.1) 63.84%, rgba(115, 161, 230, 0.1) 82.33%, rgba(236, 88, 152, 0.1) 95.23%);
+
+  a {
+    color: #22303E;
+    font-weight: 600;
+  }
+}
+
+// resolve bug : when hover on other element it will force to have active class color
+.menu-items li.active a:hover {
+  background: linear-gradient(89.1deg, rgba(141, 129, 216, 0.1) 32.88%, rgba(186, 130, 204, 0.1) 63.84%, rgba(115, 161, 230, 0.1) 82.33%, rgba(236, 88, 152, 0.1) 95.23%);
+}
+
+.menu-items li a {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  gap: 4px;
+}
+
+// Hover Effect of Anchor Tag
+.menu-items a:hover {
+  background-color: rgba(244, 244, 244, 1);
+
+  // .menu-list-container svg {
+  //   fill: #ED1B24;
+  //   fill: #ED1B24;
+  // }
+}
+
+.menu-items .submenu {
+  padding-left: 20px;
+}
+
+.sidebar.collapsed .submenu {
+  display: none;
+}
+
+.menu-items.a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  // .menu-items a {
+  //   font-size: 1rem;
+  // }
+
+  // .toggle-btn {
+  //   font-size: 1rem;
+  // }
+}
+
+.menu-items {
+  list-style: none;
+}
+
+.menu-items li {
+  position: relative;
+}
+
+.menu-items a .menu-list-container {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-items a {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  text-decoration: none;
+  color: #1E1E1E;
+  // font-size: 14px;
+  transition: background-color 0.3s;
+
+  .menu-list-container i {
+    font-size: 16px;
+  }
+
+
+  span {
+    font-size: 13px;
+  }
+
+}
+
+
+.nav-icon {
+  margin-right: 10px;
+}
+
+.submenu {
+  padding-left: 20px;
+}
+
+.submenu a {
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.submenu a:hover {
+  background-color: #666;
+}
+
+.active {
+  background-color: #444;
+}
+
+.logo-container {
+  .small-logo {
+    width: 40px;
+    height: auto;
+  }
+
+  .big-logo {
+    width: 120px;
+    height: auto;
+  }
+}
+
+// overflow item div with scroll **may be required later on enable it** 
+// .main-menu-items {
+//   max-height: 100%;
+//   overflow-y: auto;
+// }
+
+/* Scrollbar base style */
+.main-menu-items::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+.main-menu-items::-webkit-scrollbar-track {
+  background: #E7E9ED;
+  border-radius: 4px;
+}
+
+/* Handle */
+.main-menu-items::-webkit-scrollbar-thumb {
+  background: #A5A7FF;
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+.main-menu-items::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Scrollbar corner for when both scrollbars (horizontal/vertical) are present */
+.main-menu-items::-webkit-scrollbar-corner {
+  background: #f1f1f1;
+}
+
+.submenu {
+  list-style: none;
+  padding-left: 2.5rem;
+  margin: 0.5rem 0;
+
+  li {
+    margin: 0.25rem 0;
+
+    a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+      display: block;
+      border-radius: 0.3rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: white;
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    &.active {
+      a {
+        color: white;
+        background: rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+}
+
+.has-children {
+  >a {
+    position: relative;
+
+    &:after {
+      content: '\f107';
+      font-family: 'Font Awesome 5 Free';
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 0.3s ease;
+      font-weight: 600;
+    }
+  }
+
+  &.active {
+    >a:after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+}

@@ -1,0 +1,68 @@
+<div class="login-container">
+  <div class="grid-one d-flex align-items-center justify-content-center mb-0">
+    <form [formGroup]="loginForm" class="form-container" (ngSubmit)="onSubmit()">
+      <div class="login-heading_bar mb-6">
+        <h1>Login to your Account</h1>
+        <p>See what is going on with your business</p>
+      </div>
+      <div class="mb-4 login-input">
+        <label for="email" class="labelText">Email Address</label>
+        <div class="input-wrapper">
+          <!-- <i class="fal fa-user position-absolute input-icon"></i> -->
+          <input type="text" id="email" placeholder="enter email" formControlName="email" appEmojiValidation />
+        </div>
+      </div>
+      <div class="password-container login-input">
+        <label for="password" class="labelText">Password</label>
+        <div class="input-wrapper">
+          <!-- <i class="fal fa-lock position-absolute input-icon"></i> -->
+          <input type="{{ showPassword ? 'text' : 'password' }}" id="password" placeholder="*****************"
+            formControlName="password" appEmojiValidation />
+          <span class="show-pass" (click)="showPwd()"
+            [ngClass]="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></span>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-end mb-3 mt-3">
+        <!-- <div class="checkbox-login d-flex align-items-center gap-1">
+          <input type="checkbox" name="checkbox" class="checkbox" id="checkbox" />
+          <label for="checkbox" class="text-nowrap mb-0">Remember Me</label>
+        </div> -->
+        <a routerLink="/account/forgot-password">
+          <span class="forgotText primary_gradient-text">Forgot Password?</span>
+        </a>
+      </div>
+      <button type="submit" class="btn loginBtn mt-3 d-flex justify-content-center align-items-center"
+        [disabled]="loginForm.invalid || loading">
+        @if(!loading){Login }
+        @if(loading){
+        <i class="pi pi-spin pi-spinner" style="font-size: 1.4rem"></i>
+        }
+      </button>
+      @if(errorMessage){
+      <div class="error-message">{{ errorMessage }}</div>
+      }
+
+      <!-- <div class="mt-2 pt-1">
+          <button class="loginWShopify btn">
+            <img class="me-2" src="/assets/icons/shopify.png" alt="shopify" />
+            Continue with Shopify
+          </button>
+        </div> -->
+      <div class="createAccoutn_text d-flex align-items-center gap-1 text-center justify-content-center mt-2 pt-1">
+        <p class="mb-0">Not Registered Yet?</p>
+        <a (click)="navigateToRegister()">Create an account</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- -------------------------- -->
+
+  <!-- <div class="grid-two mb-0">
+    <div class="login-inner-conatainer">
+      <div class="img-Container">
+        <img src="/assets/login-bg.png" alt="Login Image" class="imgLogin" />
+      </div>
+    </div>
+  </div> -->
+</div>

@@ -1,0 +1,30 @@
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+  // padding: 20px;
+  // overflow-y: auto;
+}
+
+.info-content {
+  flex: 1;
+  padding: 15px 20px;
+  max-height: calc(100vh - 70px);
+  overflow-y: auto;
+}
+
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}

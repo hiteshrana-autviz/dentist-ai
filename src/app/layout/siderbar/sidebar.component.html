@@ -1,0 +1,53 @@
+<div [class.collapsed]="isCollapsed" class="sidebar relative h-full border-r border-[#E3DBDB] shadow-sidebar">
+
+  <div class="absolute -right-[.9rem] top-5 bg-white z-30" [ngClass]="{'-right-10' : isCollapsed}">
+    <button class="border rounded-full w-7 h-7" (click)="toggleSidebar()" [ngClass]="{'justify-center' : isCollapsed}">
+      <i class="{{ isCollapsed ? 'fa-solid fa-chevron-right' : 'fa-solid fa-chevron-left text-left' }}"></i>
+    </button>
+  </div>
+
+  <div class="logo-container d-flex align-items-center px-0 py-3" [ngClass]="{'justify-center ': isCollapsed}">
+    <img src="../../../assets/logo.svg" class="lg:w-[150px] mx-auto" alt="logo">
+    <span class="fs-4 fw-bold ms-2 text-white" *ngIf="!isCollapsed">Logo</span>
+  </div>
+
+  <ul class="menu-items main-menu-items" [ngClass]="{'px-[15px]': !isCollapsed, 'px-2': isCollapsed }">
+    <li *ngFor="let item of menuItems" (click)="toggleSidebarOnMobileView(); handleMenuClick(item)"
+      [class.active]="item.isActive" [class.has-children]="item.children"
+      [class.expanded]="!item.isCollapsed && item.children" class="rounded-lg overflow-hidden mb-2">
+
+      <a [routerLink]="item.route" [ngClass]="{'justify-center': isCollapsed}"
+        (click)="item.children && toggleSubmenu(item, $event)">
+        <div class="menu-list-container">
+          <img [src]="item?.img" alt="">
+        </div>
+        <span *ngIf="!isCollapsed" class="icon-label">{{ item.label }}</span>
+      </a>
+
+      <ul *ngIf="item.children && !isCollapsed && !item.isCollapsed" class="submenu" [@slideInOut]>
+
+        <li *ngFor="let child of item.children" [class.active]="child.isActive" class="submenu-item">
+          <!-- Added class for submenu item -->
+          <a [routerLink]="child.route" class="d-flex align-items-center">
+            <i class="{{child.img}} me-2"></i>
+            <span>{{ child.label }}</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+
+  <div class="absolute bottom-0 left-0 w-full">
+    <div class="border-t border-[#EBEBEB] py-[15px]" [ngClass]="{'ps-[30px]' : !isCollapsed , 'ps-4' : isCollapsed}">
+      <a href="">
+        <div class="flex gap-[10px]" (click)="logout()">
+          <img src="/assets/icons/sidebar-icons/logout.svg" alt="logout">
+          <p *ngIf="!isCollapsed">Log Out</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+
+</div>

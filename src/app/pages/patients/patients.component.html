@@ -1,0 +1,112 @@
+<section>
+  <!-- <p-table
+    [value]="patients"
+    [paginator]="true"
+    [rows]="pageSize"
+    [totalRecords]="totalPatients"
+    (onPage)="onPageChange($event)"
+    styleClass="p-datatable-gridlines"
+  >{{totalPatients}} -->
+  <p-table #dt1 [value]="patients" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+    [globalFilterFields]="['title', 'handle']"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} patients" [rowsPerPageOptions]="[10,25,50]"
+    styleClass="p-datatable-striped" [lazy]="true" (onPage)="onPageChange($event)" [totalRecords]="totalPatients">
+    <ng-template pTemplate="caption">
+      <div class="flex justify-between items-end border-b border-[#E3DBDB]">
+        <h1 class="t-title">Recent Patients</h1>
+        <div class="flex items-center gap-4 pb-[10px]">
+          <div class="relative h-fit w-fit">
+            <img src="/assets/icons/src.svg" alt="Search Icon" class="absolute left-[14px] top-2 w-5 h-5" />
+            <input (input)="onSearch($event)" pInputText type="text" [(ngModel)]="searchTerm"
+              placeholder="Search Patient by Name or OPD ID"
+              class="h-10 w-[290px] ps-[2.8rem] text-sm focus:outline-none placeholder:text-sm placeholder:font-normal placeholder:leading-[16.59px] placeholder:text-[#4A4A4A] pe-6 rounded-lg bg-[#F2F2F2] " />
+          </div>
+
+          <button (click)="openAddPatientDialog()"
+            class="bg-textBlack text-white text-base w-fit transition-all ease-in-out py-2 px-[14px] hover:btn-shadow rounded-md flex items-center justify-center gap-2 font-semibold">
+            <img src="/assets/icons/folder-add.svg" class="w-5 h-5" alt="Add Folder Icon" /><span
+              class="whitespace-nowrap">Add Patient</span>
+          </button>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Serial No.</th>
+        <th>Name</th>
+        <th>Patient ID</th>
+        <th>Date of Birth</th>
+        <th>Mobile</th>
+        <th>Action</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-patient let-rowIndex="rowIndex">
+      <tr>
+        <td>{{ rowIndex + 1 }}</td>
+        <td>{{ patient.name }}</td>
+        <td>
+          <span class="bg-[#F8F8F8] px-2 py-[2.5px] rounded-[4px] w-full block">{{
+            patient.patientId
+            }}</span>
+        </td>
+        <td>
+          <span>
+            <p>{{ patient.dateOfBirth | date }}</p>
+          </span>
+        </td>
+        <td>
+          <span class="bg-[#ED8796] px-2 py-[2.5px] rounded-[4px] text-white">{{
+            patient.phone
+            }}</span>
+        </td>
+        <td>
+          <div class="flex items-center gap-3">
+            <button (click)="openEditPatientDialog(patient)" class="w-5 h-5">
+              <img src="/assets/icons/edit.svg" alt="Edit" />
+            </button>
+
+            <button (click)="navigateToPeriodontalChartList(patient.id)" class="w-5 h-5">
+              <img src="/assets/icons/view.svg" alt="Edit" />
+            </button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <!-- Patient Dialog for Add/Edit -->
+  <p-dialog [(visible)]="patientDialogVisible" [modal]="true" [closable]="false" [draggable]="false">
+    <p-header class="font-semibold text-textBlack">{{ isEditMode ? "Edit Patient" : "Add Patient" }}</p-header>
+
+    <div class="grid grid-cols-12">
+      <!-- Form Fields for Patient -->
+      <div class="col-span-6 mb-4 dilog-labelNinput">
+        <label for="name">Name</label>
+        <input id="name" [(ngModel)]="selectedPatient.name" pInputText />
+      </div>
+
+      <div class="col-span-6 mb-4 dilog-labelNinput">
+        <label for="patientId">Patient ID</label>
+        <input id="patientId" [(ngModel)]="selectedPatient.patientId" pInputText />
+      </div>
+      <div class="col-span-6 mb-4 dilog-labelNinput">
+        <label for="dob">Date of Birth</label>
+        <input id="dob" [(ngModel)]="selectDob" type="date" pInputText />
+      </div>
+
+      <div class="col-span-6 mb-4 dilog-labelNinput">
+        <label for="phone">Phone</label>
+        <input id="phone" [(ngModel)]="selectedPatient.phone" pInputText />
+      </div>
+    </div>
+
+
+    <p-footer class="flex justify-end border-t border-slate-200 pt-3 gap-2">
+      <button (click)="closeDialog()" pButton label="Cancel" class="btn cnl-btn"></button>
+
+      <button (click)="savePatient()" pButton label="Save" [disabled]="!isFormValid()" class="btn sav-btn"></button>
+    </p-footer>
+  </p-dialog>
+</section>

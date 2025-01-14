@@ -1,0 +1,256 @@
+// table UI
+
+.chartTable-cutsom {
+  // font-weight: normal;
+  // width: 100%;
+
+  thead tr th {
+    position: sticky;
+    top: 0;
+    z-index: 101;
+    font-weight: normal;
+    padding: 24px;
+    background-color: #fff;
+  }
+
+  tbody tr td {
+    border: 1px solid #E3DBDB;
+    padding: 10px;
+  }
+}
+
+.value-container {
+  display: flex;
+  gap: 6px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+  input {
+    width: 12px !important;
+    font-weight: 500;
+
+    &::placeholder {
+      font-weight: 500;
+    }
+
+    &:focus {
+      outline: none;
+      border: 0;
+    }
+
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}
+
+
+// shapes for table
+
+.triangle-shapde {
+  width: 88px;
+  height: 124px;
+
+  .above-ovals,
+  .bottom-ovals {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .oval {
+      width: 28px;
+      height: 28px;
+      background: #fff;
+      border-radius: 99rem;
+      border: 1px solid #1E1E1E;
+    }
+  }
+
+
+
+  .rectangle {
+    margin: 4px 0;
+    width: 88px;
+    height: 60px;
+    border: 1px solid #1E1E1E;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 21px;
+      top: -11px;
+      background: #1E1E1E;
+      height: 54px;
+      width: 1px;
+      rotate: 127deg;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 20px;
+      top: -10px;
+      background: #1E1E1E;
+      height: 52px;
+      width: 1px;
+      rotate: -127deg;
+    }
+
+    .bottom_line {
+      height: 26px;
+      width: 1px;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      background: #1E1E1E;
+    }
+  }
+}
+
+
+.traingle-ovals-shape {
+  width: 88px;
+  height: 124px;
+
+  .above-ovals,
+  .bottom-ovals {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .oval {
+      width: 28px;
+      height: 28px;
+      background: #fff;
+      border-radius: 99rem;
+      border: 1px solid #1E1E1E;
+    }
+  }
+
+  .rectangle {
+    margin: 4px 0;
+    width: 88px;
+    height: 60px;
+    border: 1px solid #1E1E1E;
+  }
+}
+
+
+.rectangle-H-divided-shape {
+  width: 88px;
+  height: 124px;
+
+  .above-ovals,
+  .bottom-ovals {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .oval {
+      width: 28px;
+      height: 28px;
+      background: #fff;
+      border-radius: 99rem;
+      border: 1px solid #1E1E1E;
+    }
+  }
+
+  .rectangle {
+    margin: 4px 0;
+    width: 88px;
+    height: 60px;
+    border: 1px solid #1E1E1E;
+
+    .divider {
+      height: 100%;
+      width: 1px;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      background: #1E1E1E;
+    }
+  }
+}
+
+.rectangle-V-divided-shape {
+  width: 88px;
+  height: 124px;
+
+  .above-ovals,
+  .bottom-ovals {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .oval {
+      width: 28px;
+      height: 28px;
+      background: #fff;
+      border-radius: 99rem;
+      border: 1px solid #1E1E1E;
+    }
+  }
+
+  .rectangle {
+    margin: 4px 0;
+    width: 88px;
+    height: 60px;
+    border: 1px solid #1E1E1E;
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      top: 50%;
+      bottom: 0;
+      background: #1E1E1E;
+    }
+  }
+}
+
+.align-td-row {
+  display: inline;
+  text-align: center;
+  white-space: nowrap;
+
+  input {
+    width: 40px;
+    display: inline;
+    text-align: center;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &:focus-visible {
+      outline: none !important;
+      border: 0 !important;
+    }
+
+    &:disabled {
+      background-color: transparent !important;
+      color: #747474;
+    }
+
+    &:enabled {
+      border: 1px solid #eee !important;
+    }
+  }
+}
+
+
+.animated-recording {
+  width: 20px;
+  height: 20px;
+  color: #1E1E1E;
+}
+
+// .custom-width {
+//   width: 100%;
+// }

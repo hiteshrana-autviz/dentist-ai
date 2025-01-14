@@ -1,0 +1,80 @@
+.chart-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .chart-box {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chart-box h4 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .chart-box p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .actions {
+    margin-top: 12px;
+    display: flex;
+    gap: 8px;
+  }
+  
+  .view-button,
+  .add-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .view-button {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .view-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .add-button {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .add-button:hover {
+    background-color: #1e7e34;
+  }
+  .chart-actions {
+    text-align: right;
+    margin-bottom: 16px;
+  }
+  
+  .add-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-button:hover {
+    background-color: #1e7e34;
+  }
+  

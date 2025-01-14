@@ -1,0 +1,32 @@
+<section>
+
+  <!-- heading and button -->
+
+  <div class="flex justify-between items-center mb-4">
+    <h4 class="main-title">
+      Reports
+    </h4>
+
+    <div class="">
+      <button
+        class="bg-textBlack text-white text-sm w-fit transition-all ease-in-out py-2 px-[14px] hover:btn-shadow rounded-md text-center font-semibold flex justify-center items-center"
+        (click)="addNewReport()">
+        <img class="w-5 h-5" src="/assets/icons/plus.svg">
+
+        Add New Report</button>
+    </div>
+  </div>
+  <div class="grid grid-cols-12 gap-4">
+    <div *ngFor="let chart of charts" class="col-span-6 lg:col-span-4 xl:col-span-4">
+      <div class="border px-4 py-3 rounded-lg bg-gradient">
+        <p>
+          Date:
+          {{ chart.updatedAt ? (chart.updatedAt | date:'medium') : (chart.createdAt | date:'medium') }}
+        </p>
+        <div class="actions">
+          <button class="mt-4 btn border rounded border-textBlack px-4 py-1" (click)="viewChart(chart.id)">View</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
